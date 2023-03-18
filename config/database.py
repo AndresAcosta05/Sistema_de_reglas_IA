@@ -2,9 +2,9 @@
 import mysql.connector
 
 
-class Conexion:
+class Connection:
     
-    _database = 'sistema_reglas'
+    _database = 'rules_system'
     _user = 'root'
     _password = ''
     _host = 'localhost'
