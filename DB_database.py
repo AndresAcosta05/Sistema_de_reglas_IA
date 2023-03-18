@@ -9,12 +9,13 @@ class Connection:
     _password = ''
     _host = 'localhost'
 
-    _conecction = mysql.connector.connect(
-        host=_host,
-        user=_user,
-        passwd=_password,
-        db=_database
-    )
+    def __init__(self):
+        self._conecction = mysql.connector.connect(
+            host = self._host,
+            user = self._user,
+            passwd = self._password,
+            db = self._database
+        )
 
     def get_connection(self):
         return self._conecction

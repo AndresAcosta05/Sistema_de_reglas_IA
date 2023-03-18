@@ -1,6 +1,6 @@
 class User:
 
-    def __init__(self, id, document, name, second_name, surname, second_surname, user, password):
+    def __init__(self, id=0, document='', name='', second_name='', surname='', second_surname='', user='', password=''):
         self._id = id
         self._document = document
         self._name = name

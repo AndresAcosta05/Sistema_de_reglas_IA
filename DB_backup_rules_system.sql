@@ -70,7 +70,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `documento`, `name`, `second_name`, `surname`, `second_surname`, `user`, `password`, `created_at`) VALUES
+INSERT INTO `users` (`id`, `document`, `name`, `second_name`, `surname`, `second_surname`, `user`, `password`, `created_at`) VALUES
 (1, '111265891', 'Carlos', 'Andres', 'Quintero', 'Rocha', 'carquintero', '1234567', '2023-03-17');
 
 --
