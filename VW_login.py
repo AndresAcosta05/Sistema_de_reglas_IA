@@ -18,13 +18,14 @@ class aplication:
      self.lbltitle= tk.Label(
         self.ventanalogin, 
         text= "EcoSalud",
+        font=("ComicSansMS",22,"bold"),
         justify="center",
         background="sky blue",
         fg="snow")
 
 
      #Posicion Labels y Botones
-     self.lbltitle.place(x="170",y="50")
+     self.lbltitle.place(x="127",y="50")
 
 
 
