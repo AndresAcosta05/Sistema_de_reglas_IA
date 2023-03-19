@@ -8,7 +8,7 @@ class main:
     def __init__(self):
         # CREACION DE VENTANA
         self.ventanalogin = login.Windowslogin()
-        
+    
         #URL Logo
         #VENTANA DE LOGIN
         img = tk.PhotoImage(file="VW_img/img_logo1.png")
@@ -21,7 +21,10 @@ class main:
         login.loginView(self.ventanalogin)
 
 
-        #VENTANA DE REGISTRO
+
+
+        
+        
 
    
 

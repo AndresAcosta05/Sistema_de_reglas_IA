@@ -1,11 +1,11 @@
-
 import tkinter as tk
 from tkinter import ttk
 from VW_properties_login import *
 
-
 #Crear Ventana
 class register:
+ 
+
  
  def Windowsregister():
     #CREAR VENTANA
@@ -38,7 +38,7 @@ class register:
         fg="snow")
     Vw1.lbltitle.place(relx=0.5, rely=0.25, anchor="center")
 
-
+   #CAJA DE TEXTO Y LABEL NOMBRE USUARIO 
     Vw1.lbltitle = tk.Label(
         Vw1,
         text="Nombre: ",
@@ -48,11 +48,12 @@ class register:
         fg="snow")
     Vw1.lbltitle.place(relx=0.2, rely=0.4, anchor="center")
 
-    #CAJA DE TEXTO
+ 
     Vw1.nombre = tk.Entry(Vw1)
     Vw1.nombre.place(relx=0.35, rely=0.4, anchor="center")
 
 
+#CAJA DE TEXTO Y LABEL APELLIDO USUARIO 
     Vw1.lbltitle = tk.Label(
         Vw1,
         text="Apellido: ",
@@ -62,9 +63,35 @@ class register:
         fg="snow")
     Vw1.lbltitle.place(relx=0.2, rely=0.5, anchor="center")
 
-    #CAJA DE TEXTO
     Vw1.apellido = tk.Entry(Vw1)
     Vw1.apellido.place(relx=0.35, rely=0.5, anchor="center")
+
+
+
+    #CAJA DE TEXTO  y label SEGUNDO NOMBRE
+    Vw1.lbltitle = tk.Label(
+        Vw1,
+        text="Segundo Nombre: ",
+        font=("ComicSansMS", 15, "bold"),
+        justify="center",
+        background="sky blue",
+        fg="snow")
+    Vw1.lbltitle.place(relx=0.6, rely=0.4, anchor="center")
+    Vw1.segundo_nombre = tk.Entry(Vw1)
+    Vw1.segundo_nombre.place(relx=0.8, rely=0.4, anchor="center")
+
+
+    #CAJA DE TEXTO  y label SEGUNDO APELLIDO
+    Vw1.lbltitle = tk.Label(
+        Vw1,
+        text="Segundo apellido: ",
+        font=("ComicSansMS", 15, "bold"),
+        justify="center",
+        background="sky blue",
+        fg="snow")
+    Vw1.lbltitle.place(relx=0.6, rely=0.5, anchor="center")
+    Vw1.segundo_apellido = tk.Entry(Vw1)
+    Vw1.segundo_apellido.place(relx=0.8, rely=0.5, anchor="center")
 
 #TIPO DOCUMENTO
     Vw1.lbltitle = tk.Label(
@@ -76,12 +103,12 @@ class register:
         fg="snow")
     
     #Combo Box
-    Vw1.lbltitle.place(relx=0.6, rely=0.4, anchor="center")
+    Vw1.lbltitle.place(relx=0.6, rely=0.6, anchor="center")
     TI = ['CEDULA','TARJETA','EXTRANJERO']
     cmb= ttk.Combobox(Vw1,values=TI,width=17,state="readonly")
     cmb.current(0)
     
-    cmb.place(relx=0.8, rely=0.4, anchor="center")
+    cmb.place(relx=0.8, rely=0.6, anchor="center")
 
 
 
@@ -95,9 +122,9 @@ class register:
         justify="center",
         background="sky blue",
         fg="snow")
-    Vw1.lblnumdoc.place(relx=0.6, rely=0.5, anchor="center")
+    Vw1.lblnumdoc.place(relx=0.13, rely=0.6, anchor="center")
     Vw1.numdoc= tk.Entry(Vw1)
-    Vw1.numdoc.place(relx=0.8, rely=0.5, anchor="center")
+    Vw1.numdoc.place(relx=0.35, rely=0.6, anchor="center")
 
 
 
@@ -107,17 +134,22 @@ class register:
     justify="center",
     background="sky blue",
     fg="snow")
-    btnregister.place(relx=0.35, rely=0.6, anchor="center")
+    btnregister.place(relx=0.35, rely=0.8, anchor="center")
 
 #BOTON ATRAS
-    btnBack = tk.Button(Vw1,text="Atras",command= "",
+    btnBack = tk.Button(Vw1,text="Atras",command= ""  ,
     font=("ComicSansMS", 11),
     justify="center",
     background="sky blue",
     fg="snow")
-    btnBack.place(relx=0.65, rely=0.6, anchor="center")
+    btnBack.place(relx=0.65, rely=0.8, anchor="center")
 
 
+  
+
+
+
+   
    
 
 

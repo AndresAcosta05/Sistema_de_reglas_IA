@@ -1,7 +1,7 @@
 import tkinter as tk
 from VW_main import *
 from VW_properties_register import *
-
+from VW_windows_principal import *
 
 
 
@@ -83,7 +83,7 @@ class login:
 
 #Creacion de botones
  def Buttons(Vw):
-    btningresar = tk.Button(Vw,text="Ingresar",command="AQUI VA EL METODO DEL BOTON",
+    btningresar = tk.Button(Vw,text="Ingresar",command= principal.windows,
     font=("ComicSansMS", 11),
     justify="center",
     background="sky blue",
@@ -97,6 +97,11 @@ class login:
     fg="snow")
     
     btnregistrar.place(relx=0.5, rely=0.7, anchor="center")
+
+
+
+
+
 
 
  
