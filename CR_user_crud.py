@@ -41,5 +41,5 @@ class user_Crud:
             
 
 crud = user_Crud()
-user = User(0, '109976554', 'Samir', '', 'Antonio', 'Rojas', 'samir117', '987765')
+user = User(user="Samir",password="123")
 print(crud.insert_US(user))
