@@ -1,6 +1,6 @@
 class Diagnostic:
 
-    def __init__(self, id_diagnostic, id_user, id_questions, diagnostic):
+    def __init__(self, id_diagnostic=0, id_user=0, id_questions=0, diagnostic=0):
         self._id_diagnostic = id_diagnostic
         self._id_user = id_user
         self._id_questions = id_questions
@@ -42,8 +42,3 @@ class Diagnostic:
     
     def __str__(self):
         return f'IDG{self._id_diagnostic}, US{self._id_user}, QS{self._id_questions}, DG{self._diagnostic}'
-
-
-if __name__ == '__main__':
-    diagnostic1 = Diagnostic(1, 12, 1234, 'Cough')
-    print(diagnostic1)

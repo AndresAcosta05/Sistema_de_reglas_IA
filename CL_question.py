@@ -1,12 +1,17 @@
 class Question:
 
-    def __init__(self, persistent_cough, chest_pain, difficulty_breathing, coughing_blood):
+    def __init__(self, id_questions=0, persistent_cough=0, chest_pain=0, difficulty_breathing=0, coughing_blood=0):
+        self._id_questions = id_questions
         self._persistent_cough = persistent_cough
         self._chest_pain = chest_pain
         self._difficulty_breathing = difficulty_breathing
         self._coughing_blood = coughing_blood
     
     # getters
+    @property
+    def id_questions(self):
+        return self._id_questions
+
     @property
     def persistent_cough(self):
         return self._persistent_cough
@@ -24,6 +29,10 @@ class Question:
         return self._coughing_blood
     
     # setters
+    @id_questions.setter
+    def id_questions(self, id_questions):
+        self._id_questions = id_questions
+
     @persistent_cough.setter
     def persistent_cough(self, persistent_cough):
         self._persistent_cough = persistent_cough
