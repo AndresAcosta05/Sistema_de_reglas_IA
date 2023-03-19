@@ -1,9 +1,16 @@
 import tkinter as tk
 from VW_login import *
 
+#Crear Ventana
+class login:
+ def Windowslogin():
+    Vw = tk.Tk()
+    Vw.geometry("375x600")
+    return Vw
+    
 
     # Centrar Ventana
-def loginView(Vw):
+ def loginView(Vw):
     wtotal = Vw.winfo_screenwidth()
     htotal = Vw.winfo_screenheight()
     wventana = 375
@@ -15,7 +22,7 @@ def loginView(Vw):
 
 
 # Posicion y Creacion de  Cajas de Texto
-def positionEntry(Vw):
+ def positionEntry(Vw):
     Vw.user = tk.Entry(Vw)
     Vw.password = tk.Entry(Vw)
 
@@ -23,15 +30,11 @@ def positionEntry(Vw):
     Vw.password.place(relx=0.5, rely=0.55, anchor="center")
 
 # COLOR FONDO
-
-
-def BackgroundColor(Vw):
+ def BackgroundColor(Vw):
     Vw.configure(background="sky blue")
 
 # Posicion Y Creacion de Labels
-
-
-def positionLabels(Vw):
+ def positionLabels(Vw):
     Vw.lbluser = tk.Label(
         Vw,
         text="User",
@@ -62,17 +65,16 @@ def positionLabels(Vw):
     Vw.lblfooter.place(relx=0.5, rely=0.97, anchor="center")
 
 #Titulo de la Ventana
-def titleWindows(Vw):
+ def titleWindows(Vw):
     tk.Wm.wm_title(Vw, "EcoSalud")
 
-
 #Logo
-def logo(Vw,url):
-    Vw.lblimg = tk.Label(Vw, image=url)
+ def logo(Vw,img):
+    Vw.lblimg = tk.Label(Vw, image=img)
     Vw.lblimg.place(relx=0.5, rely=0.111, anchor="center")
 
 #Creacion de botones
-def Buttons(Vw):
+ def Buttons(Vw):
     btningresar = tk.Button(Vw,text="Ingresar",command="AQUI VA EL METODO DEL BOTON",
     font=("ComicSansMS", 11),
     justify="center",
