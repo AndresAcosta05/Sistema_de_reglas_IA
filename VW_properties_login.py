@@ -1,8 +1,16 @@
 import tkinter as tk
-from VW_login import *
+from VW_main import *
+from VW_properties_register import *
+
+
+
+
 
 #Crear Ventana
 class login:
+
+ 
+
  def Windowslogin():
     Vw = tk.Tk()
     Vw.geometry("375x600")
@@ -82,13 +90,16 @@ class login:
     fg="snow")
     btningresar.place(relx=0.5, rely=0.63, anchor="center")
 
-    btnregistrar = tk.Button(Vw,text="Registrarse",command="AQUI VA EL METODO DEL BOTON",
+    btnregistrar = tk.Button(Vw,text="Registrarse",command= register.Windowsregister,
     font=("ComicSansMS", 11),
     justify="center",
     background="sky blue",
     fg="snow")
+    
     btnregistrar.place(relx=0.5, rely=0.7, anchor="center")
 
+
+ 
 
 
 
