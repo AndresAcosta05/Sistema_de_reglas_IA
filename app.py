@@ -1,2 +1,3 @@
-from VW_login import aplication
-new = aplication()
+from VW_login import Login
+new = Login()
+    

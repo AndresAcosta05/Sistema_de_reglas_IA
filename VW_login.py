@@ -1,35 +1,23 @@
 import tkinter as tk
+from VW_propiets_login import *
 
-class aplication:
+
+class Login:
 
     def __init__(self):
-     
-     # DIMENSIONES DE LA VENTANA
-     self.ventanalogin = tk.Tk()
-     self.ventanalogin.geometry("400x600")
 
-     #COLOR FONDO
-     self.ventanalogin.configure(background = "sky blue")
+        # CREACION DE VENTANA
+        self.ventanalogin = tk.Tk()
+        self.ventanalogin.geometry("375x600")
 
-     #TITULO DE LA VENTANA
-     tk.Wm.wm_title(self.ventanalogin,"EcoSalud")
-     
-     #LABELS
-     self.lbltitle= tk.Label(
-        self.ventanalogin, 
-        text= "EcoSalud",
-        font=("ComicSansMS",22,"bold"),
-        justify="center",
-        background="sky blue",
-        fg="snow")
+        #URL Logo
+        img = tk.PhotoImage(file="VW_img/img_logo1.png")
+        Buttons(self.ventanalogin)
+        logo(self.ventanalogin,img)
+        titleWindows(self.ventanalogin)
+        positionLabels(self.ventanalogin)
+        BackgroundColor(self.ventanalogin)
+        positionEntry(self.ventanalogin)
+        loginView(self.ventanalogin)
 
-
-     #Posicion Labels y Botones
-     self.lbltitle.place(x="127",y="50")
-
-
-
-
-     self.ventanalogin.mainloop()
-
-    
+        self.ventanalogin.mainloop()
