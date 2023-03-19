@@ -1,4 +1,4 @@
-from reglas import *
+from SBR_reglas import *
 
 class sistema(KnowledgeEngine):
     @Rule(AND(NOT(reglas(tos_persistente="si"))),(NOT(reglas(dolor_pecho="si"))),(NOT(reglas(df_respirar="si"))),(NOT(reglas(tos_sangre="si"))))

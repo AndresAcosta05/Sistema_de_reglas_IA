@@ -1,6 +1,6 @@
 
 from random import choice
-from sistema import *
+from SBR_sistema import *
 
 engine = sistema()
 engine.reset()
