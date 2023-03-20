@@ -144,8 +144,11 @@ class diag(tk.Tk):
 
             engine.run()
 
-            crud = question_Crud()
-            crud.insert_QU(Question(0,index,index2,index3,index4,index5))
+            diagnostico = engine
+                       
+
+            #crud = question_Crud()
+            #crud.insert_QU(Question(0,index,index2,index3,index4,index5))
             
 
 
