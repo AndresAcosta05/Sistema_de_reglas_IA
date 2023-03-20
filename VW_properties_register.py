@@ -1,149 +1,139 @@
 import tkinter as tk
 from tkinter import ttk
 from VW_properties_login import *
+from tkinter import messagebox
+from CR_user_crud import user_Crud
+from CL_user import User
 
-#Crear Ventana
-class register:
- 
+# Crear Ventana
 
 
- def Windowsregister():
-    #CREAR VENTANA
-    Vw1 = tk.Tk()
-    Vw1.geometry("800x600")
-    tk.Wm.wm_title(Vw1, "EcoSalud")
+class Register(tk.Tk):
+    def __init__(self):
+    # CREAR VENTANA
+        super().__init__()
+        self.geometry("800x600")
+        self.title("EcoSalud")
 
-    #CENTRAR VENTANA
-    wtotal = Vw1.winfo_screenwidth()
-    htotal = Vw1.winfo_screenheight()
-    wventana = 800
-    hventana = 600
-    pwidth = round(wtotal/2-wventana/2)
-    pheight = round(htotal/2-hventana/2)
-    Vw1.geometry(str(wventana)+"x"+str(hventana) +
+    # CENTRAR VENTANA
+        wtotal = self.winfo_screenwidth()
+        htotal = self.winfo_screenheight()
+        wventana = 800
+        hventana = 600
+        pwidth = round(wtotal/2-wventana/2)
+        pheight = round(htotal/2-hventana/2)
+        self.geometry(str(wventana)+"x"+str(hventana) +
                 "+"+str(pwidth)+"+"+str(pheight))
 
+    # COLOR FONDO
+        self.configure(background="sky blue")
+
+    # lABEL
+        self.lbltitle = tk.Label(
+            self,
+            text="Ingrese Sus Datos",
+            font=("ComicSansMS", 24, "bold"),
+            justify="center",
+            background="sky blue",
+            fg="snow")
+        self.lbltitle.place(relx=0.5, rely=0.25, anchor="center")
+
+   # CAJA DE TEXTO Y LABEL NOMBRE USUARIO
+        self.lbltitle = tk.Label(
+            self,
+            text="Nombre: ",
+            font=("ComicSansMS", 15, "bold"),
+            justify="center",
+            background="sky blue",
+            fg="snow")
+        self.lbltitle.place(relx=0.2, rely=0.4, anchor="center")
+
+        self.nombre = tk.Entry(self)
+        self.nombre.place(relx=0.35, rely=0.4, anchor="center")
 
 
-    #COLOR FONDO
-    Vw1.configure(background="sky blue")
+# CAJA DE TEXTO Y LABEL APELLIDO USUARIO
+        self.lbltitle = tk.Label(
+            self,
+            text="Apellido: ",
+            font=("ComicSansMS", 15, "bold"),
+            justify="center",
+            background="sky blue",
+            fg="snow")
+        self.lbltitle.place(relx=0.2, rely=0.5, anchor="center")
 
-    #lABEL
-    Vw1.lbltitle = tk.Label(
-        Vw1,
-        text="Ingrese Sus Datos",
-        font=("ComicSansMS", 24, "bold"),
+        self.apellido = tk.Entry(self)
+        self.apellido.place(relx=0.35, rely=0.5, anchor="center")
+
+    # CAJA DE TEXTO  y label SEGUNDO NOMBRE
+        self.lbltitle = tk.Label(
+            self,
+            text="Segundo Nombre: ",
+            font=("ComicSansMS", 15, "bold"),
+            justify="center",
+            background="sky blue",
+            fg="snow")
+        self.lbltitle.place(relx=0.6, rely=0.4, anchor="center")
+        self.segundo_nombre = tk.Entry(self)
+        self.segundo_nombre.place(relx=0.8, rely=0.4, anchor="center")
+
+    # CAJA DE TEXTO  y label SEGUNDO APELLIDO
+        self.lbltitle = tk.Label(
+            self,
+            text="Segundo apellido: ",
+            font=("ComicSansMS", 15, "bold"),
+            justify="center",
+            background="sky blue",
+            fg="snow")
+        self.lbltitle.place(relx=0.6, rely=0.5, anchor="center")
+        self.segundo_apellido = tk.Entry(self)
+        self.segundo_apellido.place(relx=0.8, rely=0.5, anchor="center")
+
+# LABEL NUMERO DE DOCUMENTO Y CAJA DE TEXTO
+        self.lblnumdoc = tk.Label(
+            self,
+            text="Numero Documento: ",
+            font=("ComicSansMS", 15, "bold"),
+            justify="center",
+            background="sky blue",
+            fg="snow")
+        self.lblnumdoc.place(relx=0.13, rely=0.6, anchor="center")
+        self.numdoc = tk.Entry(self)
+        self.numdoc.place(relx=0.35, rely=0.6, anchor="center")
+
+
+# BOTON REGISTRAR
+        btnregister = tk.Button(self, text="Registrar", command=self.data,
+        font=("ComicSansMS", 11),
         justify="center",
         background="sky blue",
         fg="snow")
-    Vw1.lbltitle.place(relx=0.5, rely=0.25, anchor="center")
+        btnregister.place(relx=0.35, rely=0.8, anchor="center")
 
-   #CAJA DE TEXTO Y LABEL NOMBRE USUARIO 
-    Vw1.lbltitle = tk.Label(
-        Vw1,
-        text="Nombre: ",
-        font=("ComicSansMS", 15, "bold"),
+# BOTON ATRAS
+        btnBack = tk.Button(self, text="Atras", command=quit,
+        font=("ComicSansMS", 11),
         justify="center",
         background="sky blue",
         fg="snow")
-    Vw1.lbltitle.place(relx=0.2, rely=0.4, anchor="center")
-
- 
-    Vw1.nombre = tk.Entry(Vw1)
-    Vw1.nombre.place(relx=0.35, rely=0.4, anchor="center")
+        btnBack.place(relx=0.65, rely=0.8, anchor="center")
 
 
-#CAJA DE TEXTO Y LABEL APELLIDO USUARIO 
-    Vw1.lbltitle = tk.Label(
-        Vw1,
-        text="Apellido: ",
-        font=("ComicSansMS", 15, "bold"),
-        justify="center",
-        background="sky blue",
-        fg="snow")
-    Vw1.lbltitle.place(relx=0.2, rely=0.5, anchor="center")
+    def data(self):
+        Nombre = self.nombre.get()
+        Apellido = self.apellido.get()
+        SegundoNombre = self.segundo_apellido.get()
+        SegundoApellido = self.segundo_apellido.get()
+        NumeroIdenti = self.numdoc.get()
+        Usuario = Nombre + Apellido
+        Contraseña = NumeroIdenti
+        Crud = user_Crud()
 
-    Vw1.apellido = tk.Entry(Vw1)
-    Vw1.apellido.place(relx=0.35, rely=0.5, anchor="center")
+        Crud.insert_US(User(0,NumeroIdenti,Nombre,SegundoNombre,Apellido,SegundoApellido,Usuario,Contraseña))
+        
+        messagebox.showinfo(message="CALVO", title="Título")
 
-
-
-    #CAJA DE TEXTO  y label SEGUNDO NOMBRE
-    Vw1.lbltitle = tk.Label(
-        Vw1,
-        text="Segundo Nombre: ",
-        font=("ComicSansMS", 15, "bold"),
-        justify="center",
-        background="sky blue",
-        fg="snow")
-    Vw1.lbltitle.place(relx=0.6, rely=0.4, anchor="center")
-    Vw1.segundo_nombre = tk.Entry(Vw1)
-    Vw1.segundo_nombre.place(relx=0.8, rely=0.4, anchor="center")
-
-
-    #CAJA DE TEXTO  y label SEGUNDO APELLIDO
-    Vw1.lbltitle = tk.Label(
-        Vw1,
-        text="Segundo apellido: ",
-        font=("ComicSansMS", 15, "bold"),
-        justify="center",
-        background="sky blue",
-        fg="snow")
-    Vw1.lbltitle.place(relx=0.6, rely=0.5, anchor="center")
-    Vw1.segundo_apellido = tk.Entry(Vw1)
-    Vw1.segundo_apellido.place(relx=0.8, rely=0.5, anchor="center")
-
-#TIPO DOCUMENTO
-    Vw1.lbltitle = tk.Label(
-        Vw1,
-        text="Tipo Documento: ",
-        font=("ComicSansMS", 15, "bold"),
-        justify="center",
-        background="sky blue",
-        fg="snow")
-    
-    #Combo Box
-    Vw1.lbltitle.place(relx=0.6, rely=0.6, anchor="center")
-    TI = ['CEDULA','TARJETA','EXTRANJERO']
-    cmb= ttk.Combobox(Vw1,values=TI,width=17,state="readonly")
-    cmb.current(0)
-    
-    cmb.place(relx=0.8, rely=0.6, anchor="center")
-
-
-
-
-
-#LABEL NUMERO DE DOCUMENTO Y CAJA DE TEXTO
-    Vw1.lblnumdoc = tk.Label(
-        Vw1,
-        text="Numero Documento: ",
-        font=("ComicSansMS", 15, "bold"),
-        justify="center",
-        background="sky blue",
-        fg="snow")
-    Vw1.lblnumdoc.place(relx=0.13, rely=0.6, anchor="center")
-    Vw1.numdoc= tk.Entry(Vw1)
-    Vw1.numdoc.place(relx=0.35, rely=0.6, anchor="center")
-
-
-
-#BOTON REGISTRAR
-    btnregister = tk.Button(Vw1,text="Registrar",command="AQUI VA EL METODO DEL BOTON",
-    font=("ComicSansMS", 11),
-    justify="center",
-    background="sky blue",
-    fg="snow")
-    btnregister.place(relx=0.35, rely=0.8, anchor="center")
-
-#BOTON ATRAS
-    btnBack = tk.Button(Vw1,text="Atras",command= quit  ,
-    font=("ComicSansMS", 11),
-    justify="center",
-    background="sky blue",
-    fg="snow")
-    btnBack.place(relx=0.65, rely=0.8, anchor="center")
-
+        
 
   
 

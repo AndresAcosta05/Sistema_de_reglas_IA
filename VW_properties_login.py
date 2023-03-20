@@ -1,58 +1,51 @@
 import tkinter as tk
-from VW_main import *
 from VW_properties_register import *
 from VW_windows_principal import *
-
-
+from CL_user import User
+from CR_user_crud import *
+from tkinter import messagebox
 
 
 #Crear Ventana
-class login:
-
- 
-
- def Windowslogin():
-    Vw = tk.Tk()
-    Vw.geometry("375x600")
-    return Vw
-    
-
+class Login:
+ def __init__(self):
+    self.ventana = tk.Tk()
+    self.ventana.geometry("375x600")
+   
     # Centrar Ventana
- def loginView(Vw):
-    wtotal = Vw.winfo_screenwidth()
-    htotal = Vw.winfo_screenheight()
+    wtotal = self.ventana.winfo_screenwidth()
+    htotal = self.ventana.winfo_screenheight()
     wventana = 375
     hventana = 600
     pwidth = round(wtotal/2-wventana/2)
     pheight = round(htotal/2-hventana/2)
-    Vw.geometry(str(wventana)+"x"+str(hventana) +
+    self.ventana.geometry(str(wventana)+"x"+str(hventana) +
                 "+"+str(pwidth)+"+"+str(pheight))
 
 
 # Posicion y Creacion de  Cajas de Texto
- def positionEntry(Vw):
-    Vw.user = tk.Entry(Vw)
-    Vw.password = tk.Entry(Vw)
-
-    Vw.user.place(relx=0.5, rely=0.45, anchor="center")
-    Vw.password.place(relx=0.5, rely=0.55, anchor="center")
-
+    self.user = tk.Entry(self.ventana)
+    self.password = tk.Entry(self.ventana)
+    
+    self.user.place(relx=0.5, rely=0.45, anchor="center")
+    self.password.place(relx=0.5, rely=0.55, anchor="center")
+   
 # COLOR FONDO
- def BackgroundColor(Vw):
-    Vw.configure(background="sky blue")
+
+    self.ventana.configure(background="sky blue")
 
 # Posicion Y Creacion de Labels
- def positionLabels(Vw):
-    Vw.lbluser = tk.Label(
-        Vw,
+ 
+    self.ventana.lbluser = tk.Label(
+        self.ventana,
         text="User",
         font=("ComicSansMS", 15),
         justify="center",
         background="sky blue",
         fg="snow")
 
-    Vw.lblpass = tk.Label(
-        Vw,
+    self.ventana.lblpass = tk.Label(
+        self.ventana,
         text="Password",
         font=("ComicSansMS", 15),
         justify="center",
@@ -60,43 +53,80 @@ class login:
         fg="snow")
     
 
-    Vw.lblfooter = tk.Label(
-        Vw,
+    self.ventana.lblfooter = tk.Label(
+        self.ventana,
         text="@Copyright 2023 Grupo EcoSalud \n Samir Rojas - Andres Acosta - Carlos Quintero",
         font=("ComicSansMS", 9, "bold"),
         justify="center",
         background="sky blue",
         fg="snow")
 
-    Vw.lbluser.place(relx=0.5, rely=0.4, anchor="center")
-    Vw.lblpass.place(relx=0.5, rely=0.5, anchor="center")
-    Vw.lblfooter.place(relx=0.5, rely=0.97, anchor="center")
+    self.ventana.lbluser.place(relx=0.5, rely=0.4, anchor="center")
+    self.ventana.lblpass.place(relx=0.5, rely=0.5, anchor="center")
+    self.ventana.lblfooter.place(relx=0.5, rely=0.97, anchor="center")
 
 #Titulo de la Ventana
- def titleWindows(Vw):
-    tk.Wm.wm_title(Vw, "EcoSalud")
+    tk.Wm.wm_title(self.ventana, "EcoSalud")
 
 #Logo
- def logo(Vw,img):
-    Vw.lblimg = tk.Label(Vw, image=img)
-    Vw.lblimg.place(relx=0.5, rely=0.111, anchor="center")
+    img = tk.PhotoImage(file="VW_img/img_logo1.png")
+    self.ventana.lblimg = tk.Label(self.ventana, image= img)
+    self.ventana.lblimg.place(relx=0.5, rely=0.111, anchor="center")
 
 #Creacion de botones
- def Buttons(Vw):
-    btningresar = tk.Button(Vw,text="Ingresar",command= "METODO LOGIN",
+    btningresar = tk.Button(self.ventana,text="Ingresar",command= self.Data,
     font=("ComicSansMS", 11),
     justify="center",
     background="sky blue",
     fg="snow")
     btningresar.place(relx=0.5, rely=0.63, anchor="center")
 
-    btnregistrar = tk.Button(Vw,text="Registrarse",command= register.Windowsregister,
+    btnregistrar = tk.Button(self.ventana,text="Registrarse",command= self.next,
     font=("ComicSansMS", 11),
     justify="center",
     background="sky blue",
     fg="snow")
     
     btnregistrar.place(relx=0.5, rely=0.7, anchor="center")
+
+    self.ventana.mainloop()
+
+
+ def Data(self):
+    try:
+     usuario = self.user.get()
+     password = self.password.get()
+     CR_login = user_Crud()
+     validacion = CR_login.login_US(User(user=usuario, password= password))
+     if validacion:
+       Principal.windows()
+     else:
+      messagebox.showerror(message="USUARIO O CONTRASEÑA INCORRECTO", title="ERROR!")
+
+    except ValueError:
+        print("")
+
+
+ def next(self):
+     self.ventana.destroy()
+     Register()
+  
+
+ ##############################################################
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+        
 
 
 
