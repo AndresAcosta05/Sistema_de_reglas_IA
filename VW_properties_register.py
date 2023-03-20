@@ -6,7 +6,7 @@ from VW_properties_login import *
 class register:
  
 
- 
+
  def Windowsregister():
     #CREAR VENTANA
     Vw1 = tk.Tk()
@@ -137,7 +137,7 @@ class register:
     btnregister.place(relx=0.35, rely=0.8, anchor="center")
 
 #BOTON ATRAS
-    btnBack = tk.Button(Vw1,text="Atras",command= ""  ,
+    btnBack = tk.Button(Vw1,text="Atras",command= quit  ,
     font=("ComicSansMS", 11),
     justify="center",
     background="sky blue",

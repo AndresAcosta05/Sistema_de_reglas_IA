@@ -83,7 +83,7 @@ class login:
 
 #Creacion de botones
  def Buttons(Vw):
-    btningresar = tk.Button(Vw,text="Ingresar",command= principal.windows,
+    btningresar = tk.Button(Vw,text="Ingresar",command= "METODO LOGIN",
     font=("ComicSansMS", 11),
     justify="center",
     background="sky blue",

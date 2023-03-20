@@ -12,7 +12,7 @@ class principal:
         Vw2.geometry("800x600")
         tk.Wm.wm_title(Vw2, "EcoSalud")
 
-            #CENTRAR VENTANA
+        #CENTRAR VENTANA
         wtotal = Vw2.winfo_screenwidth()
         htotal = Vw2.winfo_screenheight()
         wventana = 800
