@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import messagebox
 from CR_user_crud import user_Crud
 from CL_user import User
+from validaciones import validation
 
 # Crear Ventana
 
@@ -100,6 +101,30 @@ class Register(tk.Tk):
         self.numdoc.place(relx=0.35, rely=0.6, anchor="center")
 
 
+# LABEL USUARIO Y CAJA DE TEXTO
+        self.lblusuario = tk.Label(
+            self,
+            text="Usuario: ",
+            font=("ComicSansMS", 15, "bold"),
+            justify="center",
+            background="sky blue",
+            fg="snow")
+        self.lblusuario.place(relx=0.6, rely=0.6, anchor="center")
+        self.txtuser = tk.Entry(self)
+        self.txtuser.place(relx=0.8, rely=0.6, anchor="center")
+
+# LABEL CONTRASEÑA Y CAJA DE TEXTO
+        self.lblcontraseña = tk.Label(
+            self,
+            text="Contraseña: ",
+            font=("ComicSansMS", 15, "bold"),
+            justify="center",
+            background="sky blue",
+            fg="snow")
+        self.lblcontraseña.place(relx=0.6, rely=0.65, anchor="center")
+        self.txtpass = tk.Entry(self)
+        self.txtpass.place(relx=0.8, rely=0.65, anchor="center")
+
 # BOTON REGISTRAR
         btnregister = tk.Button(self, text="Registrar", command=self.data,
         font=("ComicSansMS", 11),
@@ -116,6 +141,16 @@ class Register(tk.Tk):
         fg="snow")
         btnBack.place(relx=0.65, rely=0.8, anchor="center")
 
+        self.lblfooter = tk.Label(
+            self,
+            text="@Copyright 2023 Grupo EcoSalud \n Samir Rojas - Andres Acosta - Carlos Quintero",
+            font=("ComicSansMS", 9, "bold"),
+            justify="center",
+            background="sky blue",
+        fg="snow")
+
+        self.lblfooter.place(relx=0.5, rely=0.97, anchor="center")
+
 
     def data(self):
         Nombre = self.nombre.get()
@@ -125,10 +160,25 @@ class Register(tk.Tk):
         NumeroIdenti = self.numdoc.get()
         Usuario = Nombre + Apellido
         Contraseña = NumeroIdenti
-        Crud = user_Crud()
 
-        Crud.insert_US(User(0,NumeroIdenti,Nombre,SegundoNombre,Apellido,SegundoApellido,Usuario,Contraseña))
-        messagebox.showinfo(message="CALVO", title="Título")
+        dic = {
+            'Nombre':Nombre,
+            'Apellido': Apellido,
+            'Segundo Nombre': SegundoNombre,
+            'Segundo Apellido': SegundoApellido,
+            'Numero Identificacion': NumeroIdenti,
+            'Usuario': Usuario,
+            'Contraseña': Contraseña
+        }
+
+        if not validation(dic):
+            Crud = user_Crud()
+            result = Crud.insert_US(User(0,NumeroIdenti,Nombre,SegundoNombre,Apellido,SegundoApellido,Usuario,Contraseña))
+
+            if result:
+                messagebox.showinfo(message="Datos Insertados Exitosamente", title="Título")
+            else:
+                messagebox.showerror(message="Error Al guardar usuario", title="ERROR!")
     
     def back_login(self):
         self.destroy()

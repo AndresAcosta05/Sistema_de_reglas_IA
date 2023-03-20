@@ -7,9 +7,8 @@ from random import choice
 from SBR_reglas import Reglas
 from CR_question import question_Crud
 from CL_question import Question
-
-
-
+from CR_diagnostic import diagnostic_Crud
+from CL_diagnostic import Diagnostic
 
 
 class diag(tk.Tk):
@@ -121,19 +120,16 @@ class diag(tk.Tk):
 
 #Respuesta Combobox1
     def data(self):
-        index = self.combo.current()
-        index2 = self.combo2.current()
-        index3 = self.combo3.current()
-        index4 = self.combo4.current()     
-        index5 = self.combo5.current()
+        index = self.combo.current() #ESTORNUDO
+        index2 = self.combo2.current() #TOS PERSISTENTE
+        index3 = self.combo3.current() # DOLOR EN EL PECHO
+        index4 = self.combo4.current() # DIFICULTAD PARA RESPIRAR
+        index5 = self.combo5.current() #TOS CON SANGRE
 
         if index == -1 or index2 == -1 or index3 == -1 or index4 == -1 or index5 == -1:
             messagebox.showerror(message="INGRESE TODOS LOS DATOS POR FAVOR",)
         else:
-            ##messagebox.showinfo(message="Sintomas Ingresados Correctamente", title="Diagnostico")
-            print(index,index2,index3,index4,index5)
-
-
+            
             engine = Sistema()
             engine.reset()
             engine.declare(Reglas(estornudos=choice([str(self.combo.get())])))
@@ -144,24 +140,16 @@ class diag(tk.Tk):
 
             engine.run()
 
-            diagnostico = engine
-                       
-
-            #crud = question_Crud()
-            #crud.insert_QU(Question(0,index,index2,index3,index4,index5))
-            
-
-
-
-            
-
-            
-run = diag()
-run.mainloop()
-
-
-        
-
-
-
-
+            diagnostico = engine.__str__()
+            crud = question_Crud()
+            crud_diag= diagnostic_Crud()
+            id_question = crud.insert_QU(Question(0,index2,index3,index4,index5,index))
+            if id_question:
+                result = crud_diag.insert_DG(Diagnostic(0,19,id_question,diagnostico))
+                if result:
+                    messagebox.showinfo(message="Sintomas Ingresados Correctamente", title="Diagnostico")
+                else:
+                    messagebox.showerror(message="Error al ingresar el diagnostico", title="ERROR DIAGNOSTICO")
+            else:
+                messagebox.showerror(message="Error al insertar las preguntas", title="ERROR DE PREGUNTAS!")
+       
