@@ -16,23 +16,30 @@ class diagnostic_Crud:
 
     @classmethod
     def select_DG(cls):
-        with cls._db as db:
-            with db.cursor() as cursor:
-                cursor.execute('SELECT * FROM diagnoses')
-                data = cursor.fetchall()
-                diagnoses = []
+        try:
+            cursor = cls._db.cursor()
+            cursor.execute('SELECT * FROM diagnoses')
+            data = cursor.fetchall()
+            diagnoses = []
 
-                if data:
-                    for diagnostic in data:
-                        diagnoses.append(Diagnostic(diagnostic[0], diagnostic[1], diagnostic[2], diagnostic[3]))
-                return diagnoses
+            if data:
+                for diagnostic in data:
+                    diagnoses.append(Diagnostic(diagnostic[0], diagnostic[1], diagnostic[2], diagnostic[3]))
+            return diagnoses
+        except Exception as e:
+            print(e)
+            return []
     
     @classmethod
     def insert_DG(cls, diagnostic):
-        with cls._db as db:
-            with db.cursor() as cursor:
-                sentence = 'INSERT INTO diagnoses(id_user, id_questions, diagnostic) VALUES (%s, %s, %s)'
-                values = (diagnostic.id_user, diagnostic.id_questions, diagnostic.diagnostic)
-                cursor.execute(sentence, values)
-                db.commit()
-                return cursor.rowcount
+        try:
+            cursor = cls._db.cursor()
+            sentence = 'INSERT INTO diagnoses(id_user, id_questions, diagnostic) VALUES (%s, %s, %s)'
+            values = (diagnostic.id_user, diagnostic.id_questions, diagnostic.diagnostic)
+            cursor.execute(sentence, values)
+            cls._db.commit()
+            return cursor.rowcount
+        
+        except Exception as e:
+            print(e)
+            return []

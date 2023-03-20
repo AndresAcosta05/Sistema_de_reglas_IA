@@ -16,24 +16,31 @@ class question_Crud:
 
     @classmethod
     def select_QU(cls):
-        with cls._db as db:
-            with db.cursor() as cursor:
-                cursor.execute('SELECT * FROM questions')
-                data = cursor.fetchall()
-                questions = []
+        try:
+            cursor = cls._db.cursor()
+            cursor.execute('SELECT * FROM questions')
+            data = cursor.fetchall()
+            questions = []
 
-                if data:
-                    for question in data:
-                        questions.append(Question(question[0], question[1], question[2], question[3], question[4]))
-                return questions
+            if data:
+                for question in data:
+                    questions.append(Question(question[0], question[1], question[2], question[3], question[4]))
+            return questions
+        
+        except Exception as e:
+            print(e)
+            return []
     
     @classmethod
     def insert_QU(cls, questions):
-        with cls._db as db:
-            with db.cursor() as cursor:
-                sentence = 'INSERT INTO questions(persistent_cough, chest_pain, difficulty_breathing, coughing_blood) VALUES (%s, %s, %s, %s)'
-                values = (questions.persistent_cough, questions.chest_pain, questions.difficulty_breathing, questions.coughing_blood)
-                cursor.execute(sentence, values)
-                db.commit()
-                return cursor.rowcount
-
+        try:
+            cursor = cls._db.cursor()
+            sentence = 'INSERT INTO questions(persistent_cough, chest_pain, difficulty_breathing, coughing_blood) VALUES (%s, %s, %s, %s)'
+            values = (questions.persistent_cough, questions.chest_pain, questions.difficulty_breathing, questions.coughing_blood)
+            cursor.execute(sentence, values)
+            cls.db.commit()
+            return cursor.rowcount
+        
+        except Exception as e:
+            print(e)
+            return []
