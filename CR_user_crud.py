@@ -6,6 +6,13 @@ class user_Crud:
     _connection = Connection()
     _db = _connection.get_connection()
 
+    """ In this file class, it allows the crud or operation to insert, select, update delete, each fetch 
+        returns an object of its class to allow a more organized fetch with respect to its class notes:
+
+        * when insert or update you can valid if the funcion returns 1 if it doesn't it's because don't do it
+        * the funcions to read the records returns [] when don't find any data
+    """
+
     @classmethod
     def select_US(cls):
         with cls._db as db:
@@ -34,12 +41,8 @@ class user_Crud:
     def insert_US(cls, user):
         with cls._db as db:
             with db.cursor() as cursor:
-                sentence = 'INSERT INTO users(document, name, second_name, surname, second_surname, user, password, created_at) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)'
+                sentence = 'INSERT INTO users(document, name, second_name, surname, second_surname, user, password) VALUES (%s, %s, %s, %s, %s, %s, %s)'
                 values = (user.document, user.name, user.second_name, user.surname, user.second_surname, user.user, user.password, "")
                 cursor.execute(sentence, values)
+                db.commit()
                 return cursor.rowcount
-            
-
-crud = user_Crud()
-user = User(0, '109976554', 'Samir', '', 'Antonio', 'Rojas', 'samir117', '987765')
-print(crud.insert_US(user))
