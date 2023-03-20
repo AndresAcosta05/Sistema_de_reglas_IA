@@ -1,8 +1,3 @@
-from VW_login import aplication
+from VW_main import *
+new = main()
 
-import tkinter as tk
-from tkinter import font
-
-
-
-new = aplication()
