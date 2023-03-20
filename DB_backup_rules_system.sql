@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2023 at 05:16 PM
+-- Generation Time: Mar 20, 2023 at 04:47 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -45,7 +45,8 @@ CREATE TABLE `questions` (
   `persistent_cough` int(1) NOT NULL,
   `chest_pain` int(1) NOT NULL,
   `difficulty_breathing` int(1) NOT NULL,
-  `coughing_blood` int(1) NOT NULL
+  `coughing_blood` int(1) NOT NULL,
+  `sneezing` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -56,14 +57,14 @@ CREATE TABLE `questions` (
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `documento` varchar(10) NOT NULL,
+  `document` varchar(10) NOT NULL,
   `name` varchar(20) NOT NULL,
   `second_name` varchar(20) DEFAULT NULL,
   `surname` varchar(20) NOT NULL,
   `second_surname` varchar(20) NOT NULL,
   `user` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL,
-  `created_at` date NOT NULL
+  `created_at` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -105,19 +106,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `diagnoses`
 --
 ALTER TABLE `diagnoses`
-  MODIFY `id_diagnostic` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_diagnostic` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `questions`
 --
 ALTER TABLE `questions`
-  MODIFY `id_questions` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_questions` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
