@@ -1,18 +1,17 @@
 import tkinter as tk
-from tkinter import ttk
 from VW_properties_login import *
 from VW_diagnosticar import *
 from VW_visualizar import *
 from VW_acercade import *
 
-class principal:
+class Principal():
 
     def windows():
         Vw2 = tk.Tk()
         Vw2.geometry("800x600")
         tk.Wm.wm_title(Vw2, "EcoSalud")
 
-        #CENTRAR VENTANA
+            #CENTRAR VENTANA
         wtotal = Vw2.winfo_screenwidth()
         htotal = Vw2.winfo_screenheight()
         wventana = 800
