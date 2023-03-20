@@ -1,6 +1,4 @@
 import tkinter as tk
-from tkinter import ttk
-from VW_properties_login import *
 from tkinter import messagebox
 from CR_user_crud import user_Crud
 from CL_user import User
@@ -111,7 +109,7 @@ class Register(tk.Tk):
         btnregister.place(relx=0.35, rely=0.8, anchor="center")
 
 # BOTON ATRAS
-        btnBack = tk.Button(self, text="Atras", command=quit,
+        btnBack = tk.Button(self, text="Atras", command=self.back_login,
         font=("ComicSansMS", 11),
         justify="center",
         background="sky blue",
@@ -130,8 +128,10 @@ class Register(tk.Tk):
         Crud = user_Crud()
 
         Crud.insert_US(User(0,NumeroIdenti,Nombre,SegundoNombre,Apellido,SegundoApellido,Usuario,Contraseña))
-        
         messagebox.showinfo(message="CALVO", title="Título")
+    
+    def back_login(self):
+        self.destroy()
 
         
 
