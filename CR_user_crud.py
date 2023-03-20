@@ -41,7 +41,7 @@ class user_Crud:
     def insert_US(cls, user):
         with cls._db as db:
             with db.cursor() as cursor:
-                sentence = 'INSERT INTO users(document, name, second_name, surname, second_surname, user, password, created_at) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)'
+                sentence = 'INSERT INTO users(document, name, second_name, surname, second_surname, user, password) VALUES (%s, %s, %s, %s, %s, %s, %s)'
                 values = (user.document, user.name, user.second_name, user.surname, user.second_surname, user.user, user.password, "")
                 cursor.execute(sentence, values)
                 db.commit()
