@@ -1,9 +1,11 @@
 
 from random import choice
-from sistema import *
+from SBR_sistema import *
 
 engine = sistema()
 engine.reset()
+v_estornudos = input("¿Tiene tos persistente? \n  si   no ")
+engine.declare(reglas(estornudos=choice([str(v_estornudos)])))
 v_tos_persistente = input("¿Tiene tos persistente? \n  si   no ")
 engine.declare(reglas(tos_persistente=choice([str(v_tos_persistente)])))
 v_dolor_pecho = input("¿Tiene dolor en el pecho frecuente? \n  si   no ")
