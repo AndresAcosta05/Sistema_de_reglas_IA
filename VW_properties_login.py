@@ -1,8 +1,8 @@
 import tkinter as tk
-from VW_properties_register import *
-from VW_windows_principal import *
+from VW_properties_register import Register
+from VW_windows_principal import Principal
 from CL_user import User
-from CR_user_crud import *
+from CR_user_crud import user_Crud
 from tkinter import messagebox
 
 
@@ -99,7 +99,8 @@ class Login:
      CR_login = user_Crud()
      validacion = CR_login.login_US(User(user=usuario, password= password))
      if validacion:
-       Principal.windows()
+       Principal()
+       
      else:
       messagebox.showerror(message="USUARIO O CONTRASEÑA INCORRECTO", title="ERROR!")
 
@@ -108,12 +109,7 @@ class Login:
 
 
  def next(self):
-     self.ventana.destroy()
      Register()
-  
-
- ##############################################################
-
 
 
  
