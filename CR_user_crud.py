@@ -52,4 +52,4 @@ class user_Crud:
         values = (user.document, user.name, user.second_name, user.surname, user.second_surname, user.user, user.password)
         cursor.execute(sentence, values)
         cls._db.commit()
-        return cursor.rowcount
+        return cursor.lastrowid
