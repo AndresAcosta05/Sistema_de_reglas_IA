@@ -38,7 +38,7 @@ class question_Crud:
             sentence = 'INSERT INTO questions(persistent_cough, chest_pain, difficulty_breathing, coughing_blood) VALUES (%s, %s, %s, %s)'
             values = (questions.persistent_cough, questions.chest_pain, questions.difficulty_breathing, questions.coughing_blood)
             cursor.execute(sentence, values)
-            cls.db.commit()
+            cls._db.commit()
             return cursor.rowcount
         
         except Exception as e:

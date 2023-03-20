@@ -1,131 +1,131 @@
 from SBR_reglas import *
 
-class sistema(KnowledgeEngine):
-    @Rule(AND(NOT(reglas(estornudos="si"))),(NOT(reglas(tos_persistente="si"))),(NOT(reglas(dolor_pecho="si"))),(NOT(reglas(df_respirar="si"))),(NOT(reglas(tos_sangre="si"))))
+class Sistema(KnowledgeEngine):
+    @Rule(AND(NOT(Reglas(estornudos="si"))),(NOT(Reglas(tos_persistente="si"))),(NOT(Reglas(dolor_pecho="si"))),(NOT(Reglas(df_respirar="si"))),(NOT(Reglas(tos_sangre="si"))))
     def n1(self):
-        print("Diagnostico: Salud estable")
+        return "Diagnostico: Salud estable"
 
-    @Rule(AND((reglas(estornudos="si"))),(NOT(reglas(tos_persistente="si"))),(NOT(reglas(dolor_pecho="si"))),(NOT(reglas(df_respirar="si"))),(NOT(reglas(tos_sangre="si"))))
+    @Rule(AND((Reglas(estornudos="si"))),(NOT(Reglas(tos_persistente="si"))),(NOT(Reglas(dolor_pecho="si"))),(NOT(Reglas(df_respirar="si"))),(NOT(Reglas(tos_sangre="si"))))
     def n2(self):
-        print("Diagnostico: Alergía") 
+        return "Diagnostico: Alergía"
 
-    @Rule(AND(NOT(reglas(estornudos="si"))),((reglas(tos_persistente="si"))),(NOT(reglas(dolor_pecho="si"))),(NOT(reglas(df_respirar="si"))),(NOT(reglas(tos_sangre="si"))))
+    @Rule(AND(NOT(Reglas(estornudos="si"))),((Reglas(tos_persistente="si"))),(NOT(Reglas(dolor_pecho="si"))),(NOT(Reglas(df_respirar="si"))),(NOT(Reglas(tos_sangre="si"))))
     def n3(self):
-        print("Diagnostico: Gripe común  ")
+        return "Diagnostico: Gripe común  "
 
-    @Rule(AND((reglas(estornudos="si"))),((reglas(tos_persistente="si"))),(NOT(reglas(dolor_pecho="si"))),(NOT(reglas(df_respirar="si"))),(NOT(reglas(tos_sangre="si"))))
+    @Rule(AND((Reglas(estornudos="si"))),((Reglas(tos_persistente="si"))),(NOT(Reglas(dolor_pecho="si"))),(NOT(Reglas(df_respirar="si"))),(NOT(Reglas(tos_sangre="si"))))
     def n4(self):
-        print("Diagnostico: Tos crónica")       
+        return "Diagnostico: Tos crónica"       
 
-    @Rule(AND(NOT(reglas(estornudos="si"))),(NOT(reglas(tos_persistente="si"))),((reglas(dolor_pecho="si"))),(NOT(reglas(df_respirar="si"))),(NOT(reglas(tos_sangre="si"))))
+    @Rule(AND(NOT(Reglas(estornudos="si"))),(NOT(Reglas(tos_persistente="si"))),((Reglas(dolor_pecho="si"))),(NOT(Reglas(df_respirar="si"))),(NOT(Reglas(tos_sangre="si"))))
     def n5(self):
-        print("Diagnostico: Disnea")
+        return "Diagnostico: Disnea"
 
-    @Rule(AND((reglas(estornudos="si"))),(NOT(reglas(tos_persistente="si"))),((reglas(dolor_pecho="si"))),(NOT(reglas(df_respirar="si"))),(NOT(reglas(tos_sangre="si"))))
+    @Rule(AND((Reglas(estornudos="si"))),(NOT(Reglas(tos_persistente="si"))),((Reglas(dolor_pecho="si"))),(NOT(Reglas(df_respirar="si"))),(NOT(Reglas(tos_sangre="si"))))
     def n6(self):
-        print("Diagnostico: Pleusería") 
+        return "Diagnostico: Pleusería" 
 
-    @Rule(AND(NOT(reglas(estornudos="si"))),((reglas(tos_persistente="si"))),((reglas(dolor_pecho="si"))),(NOT(reglas(df_respirar="si"))),(NOT(reglas(tos_sangre="si"))))
+    @Rule(AND(NOT(Reglas(estornudos="si"))),((Reglas(tos_persistente="si"))),((Reglas(dolor_pecho="si"))),(NOT(Reglas(df_respirar="si"))),(NOT(Reglas(tos_sangre="si"))))
     def n7(self):
-        print("Diagnostico: Asma  ")
+        return "Diagnostico: Asma  "
 
-    @Rule(AND((reglas(estornudos="si"))),((reglas(tos_persistente="si"))),((reglas(dolor_pecho="si"))),(NOT(reglas(df_respirar="si"))),(NOT(reglas(tos_sangre="si"))))
+    @Rule(AND((Reglas(estornudos="si"))),((Reglas(tos_persistente="si"))),((Reglas(dolor_pecho="si"))),(NOT(Reglas(df_respirar="si"))),(NOT(Reglas(tos_sangre="si"))))
     def n8(self):
-        print("Diagnostico: Bronquitis aguda")  
+        return "Diagnostico: Bronquitis aguda"  
 
-    @Rule(AND(NOT(reglas(estornudos="si"))),(NOT(reglas(tos_persistente="si"))),(NOT(reglas(dolor_pecho="si"))),((reglas(df_respirar="si"))),(NOT(reglas(tos_sangre="si"))))
+    @Rule(AND(NOT(Reglas(estornudos="si"))),(NOT(Reglas(tos_persistente="si"))),(NOT(Reglas(dolor_pecho="si"))),((Reglas(df_respirar="si"))),(NOT(Reglas(tos_sangre="si"))))
     def n9(self):
-        print("Diagnostico: Estrés emocional")
-
-    @Rule(AND((reglas(estornudos="si"))),(NOT(reglas(tos_persistente="si"))),(NOT(reglas(dolor_pecho="si"))),((reglas(df_respirar="si"))),(NOT(reglas(tos_sangre="si"))))
+        return "Diagnostico: Estrés emocional"
+    
+    @Rule(AND((Reglas(estornudos="si"))),(NOT(Reglas(tos_persistente="si"))),(NOT(Reglas(dolor_pecho="si"))),((Reglas(df_respirar="si"))),(NOT(Reglas(tos_sangre="si"))))
     def n10(self):
-        print("Diagnostico: Rinitis alergica") 
+        return "Diagnostico: Rinitis alergica" 
         
-    @Rule(AND(NOT(reglas(estornudos="si"))),((reglas(tos_persistente="si"))),(NOT(reglas(dolor_pecho="si"))),((reglas(df_respirar="si"))),(NOT(reglas(tos_sangre="si"))))
+    @Rule(AND(NOT(Reglas(estornudos="si"))),((Reglas(tos_persistente="si"))),(NOT(Reglas(dolor_pecho="si"))),((Reglas(df_respirar="si"))),(NOT(Reglas(tos_sangre="si"))))
     def n11(self):
-        print("Diagnostico: Resfriado común")         
+        return "Diagnostico: Resfriado común"         
 
-    @Rule(AND((reglas(estornudos="si"))),((reglas(tos_persistente="si"))),(NOT(reglas(dolor_pecho="si"))),((reglas(df_respirar="si"))),(NOT(reglas(tos_sangre="si"))))
+    @Rule(AND((Reglas(estornudos="si"))),((Reglas(tos_persistente="si"))),(NOT(Reglas(dolor_pecho="si"))),((Reglas(df_respirar="si"))),(NOT(Reglas(tos_sangre="si"))))
     def n12(self):
-        print("Diagnostico: Influenza ")
+        return "Diagnostico: Influenza "
 
-    @Rule(AND(NOT(reglas(estornudos="si"))),(NOT(reglas(tos_persistente="si"))),((reglas(dolor_pecho="si"))),((reglas(df_respirar="si"))),(NOT(reglas(tos_sangre="si"))))
+    @Rule(AND(NOT(Reglas(estornudos="si"))),(NOT(Reglas(tos_persistente="si"))),((Reglas(dolor_pecho="si"))),((Reglas(df_respirar="si"))),(NOT(Reglas(tos_sangre="si"))))
     def n13(self):
-        print("Diagnostico: Neumonía")       
+        return "Diagnostico: Neumonía"      
 
-    @Rule(AND((reglas(estornudos="si"))),(NOT(reglas(tos_persistente="si"))),((reglas(dolor_pecho="si"))),((reglas(df_respirar="si"))),(NOT(reglas(tos_sangre="si"))))
+    @Rule(AND((Reglas(estornudos="si"))),(NOT(Reglas(tos_persistente="si"))),((Reglas(dolor_pecho="si"))),((Reglas(df_respirar="si"))),(NOT(Reglas(tos_sangre="si"))))
     def n14(self):
-        print("Diagnostico: Virus respiratorio sinicial")
+        return "Diagnostico: Virus respiratorio sinicial"
 
-    @Rule(AND(NOT(reglas(estornudos="si"))),((reglas(tos_persistente="si"))),((reglas(dolor_pecho="si"))),((reglas(df_respirar="si"))),(NOT(reglas(tos_sangre="si"))))
+    @Rule(AND(NOT(Reglas(estornudos="si"))),((Reglas(tos_persistente="si"))),((Reglas(dolor_pecho="si"))),((Reglas(df_respirar="si"))),(NOT(Reglas(tos_sangre="si"))))
     def n15(self):
-        print("Diagnostico: Gripe H1N1") 
+        return "Diagnostico: Gripe H1N1" 
 
-    @Rule(AND((reglas(estornudos="si"))),((reglas(tos_persistente="si"))),((reglas(dolor_pecho="si"))),((reglas(df_respirar="si"))),(NOT(reglas(tos_sangre="si"))))
+    @Rule(AND((Reglas(estornudos="si"))),((Reglas(tos_persistente="si"))),((Reglas(dolor_pecho="si"))),((Reglas(df_respirar="si"))),(NOT(Reglas(tos_sangre="si"))))
     def n16(self):
-        print("Diagnostico: COVID - 19  ")
+        return "Diagnostico: COVID - 19  "
 
-    @Rule(AND(NOT(reglas(estornudos="si"))),(NOT(reglas(tos_persistente="si"))),(NOT(reglas(dolor_pecho="si"))),(NOT(reglas(df_respirar="si"))),((reglas(tos_sangre="si"))))
+    @Rule(AND(NOT(Reglas(estornudos="si"))),(NOT(Reglas(tos_persistente="si"))),(NOT(Reglas(dolor_pecho="si"))),(NOT(Reglas(df_respirar="si"))),((Reglas(tos_sangre="si"))))
     def n17(self):
-        print("Diagnostico: Hemoptisis leve")
+        return "Diagnostico: Hemoptisis leve"
 
-    @Rule(AND((reglas(estornudos="si"))),(NOT(reglas(tos_persistente="si"))),(NOT(reglas(dolor_pecho="si"))),(NOT(reglas(df_respirar="si"))),((reglas(tos_sangre="si"))))
+    @Rule(AND((Reglas(estornudos="si"))),(NOT(Reglas(tos_persistente="si"))),(NOT(Reglas(dolor_pecho="si"))),(NOT(Reglas(df_respirar="si"))),((Reglas(tos_sangre="si"))))
     def n18(self):
-        print("Diagnostico: Hemoptisis moderada") 
+        return "Diagnostico: Hemoptisis moderada" 
 
-    @Rule(AND(NOT(reglas(estornudos="si"))),((reglas(tos_persistente="si"))),(NOT(reglas(dolor_pecho="si"))),(NOT(reglas(df_respirar="si"))),((reglas(tos_sangre="si"))))
+    @Rule(AND(NOT(Reglas(estornudos="si"))),((Reglas(tos_persistente="si"))),(NOT(Reglas(dolor_pecho="si"))),(NOT(Reglas(df_respirar="si"))),((Reglas(tos_sangre="si"))))
     def n19(self):
-        print("Diagnostico: Bronquitis crónica  ")
-
-    @Rule(AND((reglas(estornudos="si"))),((reglas(tos_persistente="si"))),(NOT(reglas(dolor_pecho="si"))),(NOT(reglas(df_respirar="si"))),((reglas(tos_sangre="si"))))
+        return "Diagnostico: Bronquitis crónica  "
+    
+    @Rule(AND((Reglas(estornudos="si"))),((Reglas(tos_persistente="si"))),(NOT(Reglas(dolor_pecho="si"))),(NOT(Reglas(df_respirar="si"))),((Reglas(tos_sangre="si"))))
     def n20(self):
-        print("Diagnostico: Bronquitis virica")       
+        return "Diagnostico: Bronquitis virica"       
 
-    @Rule(AND(NOT(reglas(estornudos="si"))),(NOT(reglas(tos_persistente="si"))),((reglas(dolor_pecho="si"))),(NOT(reglas(df_respirar="si"))),((reglas(tos_sangre="si"))))
+    @Rule(AND(NOT(Reglas(estornudos="si"))),(NOT(Reglas(tos_persistente="si"))),((Reglas(dolor_pecho="si"))),(NOT(Reglas(df_respirar="si"))),((Reglas(tos_sangre="si"))))
     def n21(self):
-        print("Diagnostico: Bronquiectasia")
+        return "Diagnostico: Bronquiectasia"
 
-    @Rule(AND((reglas(estornudos="si"))),(NOT(reglas(tos_persistente="si"))),((reglas(dolor_pecho="si"))),(NOT(reglas(df_respirar="si"))),((reglas(tos_sangre="si"))))
+    @Rule(AND((Reglas(estornudos="si"))),(NOT(Reglas(tos_persistente="si"))),((Reglas(dolor_pecho="si"))),(NOT(Reglas(df_respirar="si"))),((Reglas(tos_sangre="si"))))
     def n22(self):
-        print("Diagnostico: Bronquiectasia tipo 2" ) 
+        return "Diagnostico: Bronquiectasia tipo 2"  
 
-    @Rule(AND(NOT(reglas(estornudos="si"))),((reglas(tos_persistente="si"))),((reglas(dolor_pecho="si"))),(NOT(reglas(df_respirar="si"))),((reglas(tos_sangre="si"))))
+    @Rule(AND(NOT(Reglas(estornudos="si"))),((Reglas(tos_persistente="si"))),((Reglas(dolor_pecho="si"))),(NOT(Reglas(df_respirar="si"))),((Reglas(tos_sangre="si"))))
     def n23(self):
-        print("Diagnostico: Vasculitis ")
+        return "Diagnostico: Vasculitis "
 
-    @Rule(AND((reglas(estornudos="si"))),((reglas(tos_persistente="si"))),((reglas(dolor_pecho="si"))),(NOT(reglas(df_respirar="si"))),((reglas(tos_sangre="si"))))
+    @Rule(AND((Reglas(estornudos="si"))),((Reglas(tos_persistente="si"))),((Reglas(dolor_pecho="si"))),(NOT(Reglas(df_respirar="si"))),((Reglas(tos_sangre="si"))))
     def n24(self):
-        print("Diagnostico: Vasculitis necrosante")  
+        return "Diagnostico: Vasculitis necrosante"  
 
-    @Rule(AND(NOT(reglas(estornudos="si"))),(NOT(reglas(tos_persistente="si"))),(NOT(reglas(dolor_pecho="si"))),((reglas(df_respirar="si"))),((reglas(tos_sangre="si"))))
+    @Rule(AND(NOT(Reglas(estornudos="si"))),(NOT(Reglas(tos_persistente="si"))),(NOT(Reglas(dolor_pecho="si"))),((Reglas(df_respirar="si"))),((Reglas(tos_sangre="si"))))
     def n25(self):
-        print("Diagnostico: Tuberculosis")
+        return "Diagnostico: Tuberculosis"
 
-    @Rule(AND((reglas(estornudos="si"))),(NOT(reglas(tos_persistente="si"))),(NOT(reglas(dolor_pecho="si"))),((reglas(df_respirar="si"))),((reglas(tos_sangre="si"))))
+    @Rule(AND((Reglas(estornudos="si"))),(NOT(Reglas(tos_persistente="si"))),(NOT(Reglas(dolor_pecho="si"))),((Reglas(df_respirar="si"))),((Reglas(tos_sangre="si"))))
     def n26(self):
-        print("Diagnostico: Tuberculosis ganglionar") 
+        return "Diagnostico: Tuberculosis ganglionar" 
         
-    @Rule(AND(NOT(reglas(estornudos="si"))),((reglas(tos_persistente="si"))),(NOT(reglas(dolor_pecho="si"))),((reglas(df_respirar="si"))),((reglas(tos_sangre="si"))))
+    @Rule(AND(NOT(Reglas(estornudos="si"))),((Reglas(tos_persistente="si"))),(NOT(Reglas(dolor_pecho="si"))),((Reglas(df_respirar="si"))),((Reglas(tos_sangre="si"))))
     def n27(self):
-        print("Diagnostico: Resfriado y hemptisis moderado")         
+        return "Diagnostico: Resfriado y hemptisis moderado"         
 
-    @Rule(AND((reglas(estornudos="si"))),((reglas(tos_persistente="si"))),(NOT(reglas(dolor_pecho="si"))),((reglas(df_respirar="si"))),((reglas(tos_sangre="si"))))
+    @Rule(AND((Reglas(estornudos="si"))),((Reglas(tos_persistente="si"))),(NOT(Reglas(dolor_pecho="si"))),((Reglas(df_respirar="si"))),((Reglas(tos_sangre="si"))))
     def n28(self):
-        print("Diagnostico: resfriado y hemoptisis avanzado ")
+        return "Diagnostico: resfriado y hemoptisis avanzado "
 
-    @Rule(AND(NOT(reglas(estornudos="si"))),(NOT(reglas(tos_persistente="si"))),((reglas(dolor_pecho="si"))),((reglas(df_respirar="si"))),((reglas(tos_sangre="si"))))
+    @Rule(AND(NOT(Reglas(estornudos="si"))),(NOT(Reglas(tos_persistente="si"))),((Reglas(dolor_pecho="si"))),((Reglas(df_respirar="si"))),((Reglas(tos_sangre="si"))))
     def n29(self):
-        print("Diagnostico: Neumonía y hemoptisis leve")       
+        return "Diagnostico: Neumonía y hemoptisis leve"       
 
-    @Rule(AND((reglas(estornudos="si"))),(NOT(reglas(tos_persistente="si"))),((reglas(dolor_pecho="si"))),((reglas(df_respirar="si"))),((reglas(tos_sangre="si"))))
+    @Rule(AND((Reglas(estornudos="si"))),(NOT(Reglas(tos_persistente="si"))),((Reglas(dolor_pecho="si"))),((Reglas(df_respirar="si"))),((Reglas(tos_sangre="si"))))
     def n30(self):
-        print("Diagnostico: Neumonia y hempotisis moderada")
+        return "Diagnostico: Neumonia y hempotisis moderada"
 
-    @Rule(AND(NOT(reglas(estornudos="si"))),((reglas(tos_persistente="si"))),((reglas(dolor_pecho="si"))),((reglas(df_respirar="si"))),((reglas(tos_sangre="si"))))
+    @Rule(AND(NOT(Reglas(estornudos="si"))),((Reglas(tos_persistente="si"))),((Reglas(dolor_pecho="si"))),((Reglas(df_respirar="si"))),((Reglas(tos_sangre="si"))))
     def n31(self):
-        print("Diagnostico: Cancér de púlmon") 
+        return "Diagnostico: Cancér de púlmon" 
 
-    @Rule(AND((reglas(estornudos="si"))),((reglas(tos_persistente="si"))),((reglas(dolor_pecho="si"))),((reglas(df_respirar="si"))),((reglas(tos_sangre="si"))))
+    @Rule(AND((Reglas(estornudos="si"))),((Reglas(tos_persistente="si"))),((Reglas(dolor_pecho="si"))),((Reglas(df_respirar="si"))),((Reglas(tos_sangre="si"))))
     def n32(self):
-        print("Diagnostico: Cancér de pulmon avanzado ")
+        return "Diagnostico: Cancér de pulmon avanzado "
    
