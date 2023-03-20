@@ -48,7 +48,7 @@ class Principal(tk.Tk):
         self.mainloop()
     
     def go_diag(self):
-        diag.WindowsDiag()
+        diag()
     
     def go_visualizar(self):
         Visualizar()

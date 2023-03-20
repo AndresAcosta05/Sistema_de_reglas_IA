@@ -2,7 +2,7 @@
 from experta import *
 
 
-class reglas(Fact):
+class Reglas(Fact):
     pass
 
 
