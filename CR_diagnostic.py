@@ -49,7 +49,7 @@ class diagnostic_Crud:
             values = (diagnostic.id_user, diagnostic.id_questions, diagnostic.diagnostic)
             cursor.execute(sentence, values)
             cls._db.commit()
-            return cursor.rowcount
+            return cursor.lastrowid
         
         except Exception as e:
             print(e)

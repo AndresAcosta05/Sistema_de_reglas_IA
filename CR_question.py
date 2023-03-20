@@ -39,7 +39,7 @@ class question_Crud:
             values = (questions.persistent_cough, questions.chest_pain, questions.difficulty_breathing, questions.coughing_blood)
             cursor.execute(sentence, values)
             cls._db.commit()
-            return cursor.rowcount
+            return cursor.lastrowid
         
         except Exception as e:
             print(e)
