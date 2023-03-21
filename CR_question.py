@@ -35,8 +35,8 @@ class question_Crud:
     def insert_QU(cls, questions):
         try:
             cursor = cls._db.cursor()
-            sentence = 'INSERT INTO questions(persistent_cough, chest_pain, difficulty_breathing, coughing_blood) VALUES (%s, %s, %s, %s)'
-            values = (questions.persistent_cough, questions.chest_pain, questions.difficulty_breathing, questions.coughing_blood)
+            sentence = 'INSERT INTO questions(persistent_cough, chest_pain, difficulty_breathing, coughing_blood, sneezing) VALUES (%s, %s, %s, %s, %s)'
+            values = (questions.persistent_cough, questions.chest_pain, questions.difficulty_breathing, questions.coughing_blood, questions.sneezing)
             cursor.execute(sentence, values)
             cls._db.commit()
             return cursor.lastrowid
