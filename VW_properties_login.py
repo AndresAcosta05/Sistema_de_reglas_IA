@@ -98,11 +98,10 @@ class Login:
     fg="snow")
     
     btnregistrar.place(relx=0.5, rely=0.7, anchor="center")
-
     self.ventana.mainloop()
+
  def back(self):
      self.ventana.destroy()
-
 
  def Data(self):
     try:
@@ -118,14 +117,10 @@ class Login:
      if not validation(diccionary):
             CR_login = user_Crud()
             validacion = CR_login.login_US(User(user=usuario, password= password))
-           
             if validacion:
-                Principal()
-                
-       
+                Principal(validacion.id)
             else:
                 messagebox.showerror(message="USUARIO O CONTRASEÑA INCORRECTO", title="ERROR!")
-     
 
     except ValueError:
         print("")
@@ -134,28 +129,3 @@ class Login:
  def next(self):
      Register()
      
- 
-
-
- 
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
- 
-
-
-
-
