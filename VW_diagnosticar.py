@@ -12,7 +12,8 @@ from CL_diagnostic import Diagnostic
 
 
 class diag(tk.Tk):
-    def __init__(self):
+    def __init__(self, id_usuario):
+        self.id_us_diag = id_usuario
         super().__init__()
         self.geometry("800x600")
         self.title("EcoSalud")
@@ -168,7 +169,7 @@ class diag(tk.Tk):
             crud_diag= diagnostic_Crud()
             id_question = crud.insert_QU(Question(0,index2,index3,index4,index5,index))
             if id_question:
-                result = crud_diag.insert_DG(Diagnostic(0,19,id_question,diagnostico))
+                result = crud_diag.insert_DG(Diagnostic(0,self.id_us_diag,id_question,diagnostico))
                 if result:
                     messagebox.showinfo(message="Sintomas Ingresados Correctamente", title="Diagnostico")
                 else:

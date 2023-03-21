@@ -6,7 +6,9 @@ from VW_visualizar import Visualizar
 
 class Principal(tk.Tk):
 
-    def __init__(self):
+    def __init__(self, id_usuario):
+        # var that have the id of the logged user
+        self._id_usuario = id_usuario
         super().__init__()
         self.geometry("800x600")
         self.title('EcoSalud')
@@ -68,7 +70,7 @@ class Principal(tk.Tk):
         self.mainloop()
     
     def go_diag(self):
-        diag()
+        diag(self._id_usuario)
     
     def go_visualizar(self):
         Visualizar()
