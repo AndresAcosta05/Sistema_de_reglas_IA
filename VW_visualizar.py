@@ -8,6 +8,27 @@ class Visualizar (tk.Tk):
         super().__init__()
         self.geometry("800x600")
         self.title("Ecosalud")
+        
+        
+# Botón Cerrar
+        btnBack = tk.Button(self, text="Cerrar", command=self.back,
+        font=("ComicSansMS", 12),
+        justify="center",
+        background="sky blue",
+        fg="snow")
+        btnBack.place(relx=0.5, rely=0.8, anchor="center") 
+        
+        #footer
+        self.lblfooter = tk.Label(
+            self,
+            text="@Copyright 2023 Grupo EcoSalud \n Samir Rojas - Andres Acosta - Carlos Quintero",
+            font=("ComicSansMS", 9, "bold"),
+            justify="center",
+            background="sky blue",
+            fg="snow")
+
+    
+        self.lblfooter.place(relx=0.5, rely=0.97, anchor="center")
         #CENTRAR VENTANA
         wtotal = self.winfo_screenwidth()
         htotal = self.winfo_screenheight()
@@ -43,11 +64,11 @@ class Visualizar (tk.Tk):
         self.table.heading('#0', text='DOCUMENTO', anchor=tk.CENTER)
         self.table.heading('#1', text='NOMBRE', anchor=tk.CENTER)
         self.table.heading('#2', text='APELLIDO', anchor=tk.CENTER)
-        self.table.heading('#3', text='TP', anchor=tk.CENTER)
-        self.table.heading('#4', text='DP', anchor=tk.CENTER)
-        self.table.heading('#5', text='DR', anchor=tk.CENTER)
-        self.table.heading('#6', text='TCS', anchor=tk.CENTER)
-        self.table.heading('#7', text='E', anchor=tk.CENTER)
+        self.table.heading('#3', text='Tos Persistente', anchor=tk.CENTER)
+        self.table.heading('#4', text='Dolor en el pecho', anchor=tk.CENTER)
+        self.table.heading('#5', text='Dificultad para respirar', anchor=tk.CENTER)
+        self.table.heading('#6', text='Tos con Sangre', anchor=tk.CENTER)
+        self.table.heading('#7', text='Estornudos', anchor=tk.CENTER)
         self.table.heading('#8', text='DIAGNOSTICO', anchor=tk.CENTER)
         self.table.place(relx=0.5, rely=0.4, anchor="center", width=800)
         # Executing the sql consult
@@ -58,3 +79,6 @@ class Visualizar (tk.Tk):
             self.table.insert("", 0, text=record['document'], values=(record['name'], record['surname'], record['persistent_cough'], record['chest_pain'], record['difficulty_breathing'], record['coughing_blood'], record['sneezing'], record['diagnostic']))
         
         self.mainloop()
+        
+    def back(self):
+        self.destroy()

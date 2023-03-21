@@ -4,6 +4,7 @@ from VW_windows_principal import Principal
 from CL_user import User
 from CR_user_crud import user_Crud
 from tkinter import messagebox
+from validaciones import validation
 
 
 #Crear Ventana
@@ -72,6 +73,15 @@ class Login:
     img = tk.PhotoImage(file="VW_img/img_logo1.png")
     self.ventana.lblimg = tk.Label(self.ventana, image= img)
     self.ventana.lblimg.place(relx=0.5, rely=0.111, anchor="center")
+    
+# Boton Salir del programa
+    btnBack = tk.Button(self.ventana, text="Salir", command=self.back,
+    font=("ComicSansMS", 11),
+    justify="center",
+    background="sky blue",
+    fg="snow")
+    btnBack.place(relx=0.5, rely=0.77, anchor="center")
+
 
 #Creacion de botones
     btningresar = tk.Button(self.ventana,text="Ingresar",command= self.Data,
@@ -90,26 +100,40 @@ class Login:
     btnregistrar.place(relx=0.5, rely=0.7, anchor="center")
 
     self.ventana.mainloop()
+ def back(self):
+     self.ventana.destroy()
 
 
  def Data(self):
     try:
      usuario = self.user.get()
      password = self.password.get()
-     CR_login = user_Crud()
-     validacion = CR_login.login_US(User(user=usuario, password= password))
-     if validacion:
-       Principal()
+    
+     
+     diccionary ={
+         'Usuario': usuario,
+         'Password': password
+     }
+     
+     if not validation(diccionary):
+            CR_login = user_Crud()
+            validacion = CR_login.login_US(User(user=usuario, password= password))
+            if validacion:
+                Principal()
+                
        
-     else:
-      messagebox.showerror(message="USUARIO O CONTRASEÑA INCORRECTO", title="ERROR!")
+            else:
+                messagebox.showerror(message="USUARIO O CONTRASEÑA INCORRECTO", title="ERROR!")
+     
 
     except ValueError:
         print("")
-
+    
 
  def next(self):
      Register()
+     
+ 
 
 
  

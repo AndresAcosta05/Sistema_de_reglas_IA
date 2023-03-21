@@ -1,6 +1,6 @@
 import tkinter as tk
 from VW_diagnosticar import diag
-from VW_acercade import acerca
+from VW_acercade import Acerca
 from VW_visualizar import Visualizar
 
 
@@ -54,7 +54,7 @@ class Principal(tk.Tk):
         Visualizar()
     
     def go_acerca(self):
-        acerca.WindowsAcer()
+        Acerca()
     
     def exit_visualizar(self):
         self.destroy()

@@ -113,6 +113,29 @@ class diag(tk.Tk):
         fg= "snow", 
         command= self.data)
         btndiag.place(relx=0.425,rely=0.7)
+        
+# Boton cerrar
+        btnBack = tk.Button(self, text="Cerrar", command=self.back,
+        font=("ComicSansMS", 12, "bold"),
+        justify="center",
+        background="sky blue",
+        fg="snow")
+        btnBack.place(relx=0.5, rely=0.8, anchor="center") 
+        
+#footer
+        self.lblfooter = tk.Label(
+            self,
+            text="@Copyright 2023 Grupo EcoSalud \n Samir Rojas - Andres Acosta - Carlos Quintero",
+            font=("ComicSansMS", 9, "bold"),
+            justify="center",
+            background="sky blue",
+            fg="snow")
+
+    
+        self.lblfooter.place(relx=0.5, rely=0.97, anchor="center")
+    
+    def back(self):
+        self.destroy()
 
 
 

@@ -133,8 +133,8 @@ class Register(tk.Tk):
         fg="snow")
         btnregister.place(relx=0.35, rely=0.8, anchor="center")
 
-# BOTON ATRAS
-        btnBack = tk.Button(self, text="Atras", command=self.back_login,
+# Boton cerrar
+        btnBack = tk.Button(self, text="Cerrar", command=self.back,
         font=("ComicSansMS", 11),
         justify="center",
         background="sky blue",
@@ -158,8 +158,8 @@ class Register(tk.Tk):
         SegundoNombre = self.segundo_apellido.get()
         SegundoApellido = self.segundo_apellido.get()
         NumeroIdenti = self.numdoc.get()
-        Usuario = Nombre + Apellido
-        Contraseña = NumeroIdenti
+        Usuario = self.txtuser.get()
+        Contraseña = self.txtpass.get()
 
         dic = {
             'Nombre':Nombre,
@@ -180,7 +180,7 @@ class Register(tk.Tk):
             else:
                 messagebox.showerror(message="Error Al guardar usuario", title="ERROR!")
     
-    def back_login(self):
+    def back(self):
         self.destroy()
 
         
