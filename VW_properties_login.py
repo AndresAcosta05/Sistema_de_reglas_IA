@@ -26,7 +26,7 @@ class Login:
 
 # Posicion y Creacion de  Cajas de Texto
     self.user = tk.Entry(self.ventana)
-    self.password = tk.Entry(self.ventana)
+    self.password = tk.Entry(self.ventana,show="*")
     
     self.user.place(relx=0.5, rely=0.45, anchor="center")
     self.password.place(relx=0.5, rely=0.55, anchor="center")
@@ -47,7 +47,7 @@ class Login:
 
     self.ventana.lblpass = tk.Label(
         self.ventana,
-        text="Password",
+        text="Password", 
         font=("ComicSansMS", 15),
         justify="center",
         background="sky blue",
@@ -118,6 +118,7 @@ class Login:
      if not validation(diccionary):
             CR_login = user_Crud()
             validacion = CR_login.login_US(User(user=usuario, password= password))
+           
             if validacion:
                 Principal()
                 

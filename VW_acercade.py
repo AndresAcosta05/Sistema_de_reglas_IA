@@ -37,6 +37,18 @@ class Acerca(tk.Tk):
         fg="snow")
         btnBack.place(relx=0.5, rely=0.8, anchor="center")
         
+        
+        self.configure(background="sky blue")
+        self.lbltitle = tk.Label(
+            self,
+            text="SOFTWARE HECHO PARA FINES EDUCATIVOS",
+            font=("ComicSansMS", 24, "bold"),
+            justify="center",
+            background="sky blue",
+            fg="snow")
+        self.lbltitle.place(relx=0.5, rely=0.1, anchor="center")
+
+        
         #footer
         self.lblfooter = tk.Label(
             self,

@@ -30,6 +30,26 @@ class Principal(tk.Tk):
         background="sky blue",
         fg="snow")
         self.lbltitle.place(relx=0.5, rely=0.2, anchor="center")
+        #Descripcion
+        self.lbldes = tk.Label(
+            self,
+            text="Las enfermedades respiratorias incluyen el asma, \n la enfermedad pulmonar obstructiva crónica (EPOC), \n la fibrosis pulmonar, la neumonía y el cáncer de pulmón.",
+            font=("ComicSansMS", 10, "bold"),
+            justify="center",
+            background="sky blue",
+            fg="snow")
+        self.lbldes.place(relx=0.5, rely=0.8, anchor="center")
+
+
+        #Footer
+        self.lblfooter = tk.Label(
+            self,
+            text="@Copyright 2023 Grupo EcoSalud \n Samir Rojas - Andres Acosta - Carlos Quintero",
+            font=("ComicSansMS", 9, "bold"),
+            justify="center",
+            background="sky blue",
+            fg="snow")
+        self.lblfooter.place(relx=0.5, rely=0.97, anchor="center")
 
 
         #BARRA DE MENUS 
